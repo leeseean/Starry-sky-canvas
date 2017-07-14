@@ -1,9 +1,8 @@
 /**
- * Created by leese on 2017/7/13.
+ * Created by leeseean on 2017/7/13.
  */
 let canvas = document.getElementById('canvas');
 canvas.style.position = 'fixed';
-canvas.style.backgroundColor = '#000';
 let canvasH = window.screen.availHeight;
 let canvasW = window.screen.availWidth;
 canvas.height = canvasH;
@@ -61,8 +60,17 @@ for(let i = 0; i < 3000; i++) {
 }
 function animate() {//count总的星星个数
     context.clearRect(0,0,canvasW,canvasH);
+    drawBg();
     stars.forEach(star=>star.draw());
     requestAnimationFrame(animate);
 }
+function drawBg() {//黑色背景
+    context.save();
+    context.fillStyle = '#000';
+    context.fillRect(0,0,canvasW,canvasH);
+    context.restore();
+}
+
+
 animate();
 
